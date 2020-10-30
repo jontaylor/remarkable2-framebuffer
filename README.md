@@ -26,10 +26,11 @@ qmake
 make
 ```
 
-this will generate `src/loader/librm2fb.so.1.0.0`. Copy it to your remarkable and run:
+this will generate `src/loader/librm2fb.so.1.0.0`.  Copy it to your
+remarkable and run:
 
 ```
-LD_PRELOAD=/path/to/librm2fb.so /usr/bin/remarkable-shutdown 
+LD_PRELOAD=/path/to/librm2fb.so /usr/bin/remarkable-shutdown
 ```
 
 NOTE: For this to work, your binary should have the md5sum of
@@ -46,6 +47,7 @@ Things that can use help:
 * setting up this repository build system and CI
 * achieving fast refresh latency
 * understanding the waveforms used by SWTCON
+* writing a robust client library for interacting with server process
 * making a general way of finding the fb memory in xochitl and exposing it as shared mem
 * writing our own implementation of SWTCON
 * designing a client API that makes sense
@@ -67,7 +69,11 @@ almost a drop in replacement for the rM1 framebuffer rendering code
 use github issues or ping on the discord in one of the homebrew developer
 channels. if you mention this repo, someone will probably respond
 
-* should you distribute apps that use the LD_PRELOAD method of drawing to the framebuffer?
+* what's up with server/client API?
+
+[see this proposal](https://github.com/ddvk/remarkable2-framebuffer/issues/4)
+
+* should I distribute apps that use the LD_PRELOAD method of drawing to the framebuffer?
 
 no, probably not. let's figure out a design that doesn't require every app to
 ship a 3rd party binary.
